@@ -54,7 +54,7 @@ public class TestChunksGenerator : MonoBehaviour
         GenerateChunks();
     }
 
-    private void Initialize() 
+    private void Initialize()
     {
         Debug.Log("TestChunksGenerator Initialize");
         if (Instance != null)
@@ -72,10 +72,10 @@ public class TestChunksGenerator : MonoBehaviour
         _materialsForHeightRenderTexture = new Material[_amountOfChunksInTotal]; // test
     }
 
-    private void GenerateChunks() 
+    private void GenerateChunks()
     {
         //TEST start
-        spawnPoint = new Vector3(0, 0.01f, _chunkLengthZ / 2); 
+        spawnPoint = new Vector3(0, 0.01f, _chunkLengthZ / 2);
 
         switch (_mode)
         {
@@ -131,7 +131,7 @@ public class TestChunksGenerator : MonoBehaviour
 
             case Modes.Fourth:
 
-                for (int i = 0; i < _startAmountOfChunks+1; i++, _countOfSpawnedChunks++)
+                for (int i = 0; i < _startAmountOfChunks + 1; i++, _countOfSpawnedChunks++)
                 {
                     GameObject newChunk = Instantiate(_variantsOfChunks[0], spawnPoint, Quaternion.identity, this.transform);
                     newChunk.transform.GetChild(0).GetComponent<Renderer>().material.SetTexture("_HeightMap", _snowHeightRenderTexturesForChunks[i]);
@@ -226,7 +226,7 @@ public class TestChunksGenerator : MonoBehaviour
                 {
                     if (_countOfSpawnedChunks < _amountOfChunksInTotal)
                     {
-                        if(_currentChunkIndex == 4)
+                        if (_currentChunkIndex == 4)
                             _currentChunkIndex = 0;
 
                         //_snowHeightRenderTexturesForChunks[_currentChunkIndex].Release();

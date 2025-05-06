@@ -21,7 +21,7 @@ public class BucketRayCastScript : MonoBehaviour
     {
         _snowHeightRenderTexture.Initialize();
         _renderTextureMaterial = _snowHeightRenderTexture.material;
-        _renderTextureMaterial.SetVector("_DrawPosition", -Vector4.one); 
+        _renderTextureMaterial.SetVector("_DrawPosition", -Vector4.one);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,9 +32,9 @@ public class BucketRayCastScript : MonoBehaviour
             return;
 
         //TEST FOR 4 MODE delete after testing
-        if(TestChunksGenerator.Instance.CurrentModeIndex == 3)
+        if (TestChunksGenerator.Instance.CurrentModeIndex == 3)
         {
-            if(_chunksCounter == 4)
+            if (_chunksCounter == 4)
                 _chunksCounter = 0;
         }
         //TEST FOR 4 MODE
@@ -47,7 +47,7 @@ public class BucketRayCastScript : MonoBehaviour
 
         _isInTrigger = Physics.Raycast(_bucketRayCastPoint.transform.position, Vector3.down, out _hitInfo, 10f, _snowLayer);
 
-        cords = other.transform.GetChild(0).gameObject; 
+        cords = other.transform.GetChild(0).gameObject;
 
         cords.transform.position = _hitInfo.point;
 
@@ -66,7 +66,7 @@ public class BucketRayCastScript : MonoBehaviour
         if (1 << collision.gameObject.layer != _snowLayer.value)
             return;
 
-        _isInTrigger = Physics.Raycast(_bucketRayCastPoint.transform.position, Vector3.down, out _hitInfo, 10f, _snowLayer); 
+        _isInTrigger = Physics.Raycast(_bucketRayCastPoint.transform.position, Vector3.down, out _hitInfo, 10f, _snowLayer);
 
         if (_isInTrigger)
         {
@@ -77,7 +77,7 @@ public class BucketRayCastScript : MonoBehaviour
             _uvCoords.x = (_uvCoords.x + 1) / 2;
             _uvCoords.y = (_uvCoords.y + 1) / 2;
 
-          //  Debug.Log("Передаваемые UV" + _uvCoords);
+            //  Debug.Log("Передаваемые UV" + _uvCoords);
             _renderTextureMaterial.SetVector("_DrawPosition", _uvCoords);
         }
 
